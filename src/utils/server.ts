@@ -8,13 +8,17 @@ function createServer(): Express {
   app.use(
     cors({
       credentials: true,
-      origin: ["http://localhost:5173", process.env.CLIENT_URL!],
+      origin: [
+        "http://localhost:5173",
+        "https://airbnb-clone-frontend-x02z.onrender.com",
+        process.env.CLIENT_URL!,
+      ],
     })
   );
 
-  const rootDirName = process.cwd() + '/src/uploads';
-  
-  app.use('/uploads', express.static(rootDirName))
+  const rootDirName = process.cwd() + "/src/uploads";
+
+  app.use("/uploads", express.static(rootDirName));
   app.use(express.json());
   app.use(cookieParser());
   routes(app);
