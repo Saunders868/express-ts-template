@@ -11,10 +11,10 @@ function createServer() {
     const app = (0, express_1.default)();
     app.use((0, cors_1.default)({
         credentials: true,
-        origin: "http://localhost:5173",
+        origin: "https://airbnb-clone-frontend-x02z.onrender.com",
     }));
-    const rootDirName = process.cwd() + '/src/uploads';
-    app.use('/uploads', express_1.default.static(rootDirName));
+    const rootDirName = process.cwd() + "/src/uploads";
+    app.use("/uploads", express_1.default.static(rootDirName));
     app.use(express_1.default.json());
     app.use((0, cookie_parser_1.default)());
     (0, routes_1.default)(app);
