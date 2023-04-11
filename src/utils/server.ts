@@ -8,11 +8,7 @@ function createServer(): Express {
   app.use(
     cors({
       credentials: true,
-      origin: [
-        "http://localhost:5173",
-        "https://airbnb-clone-frontend-x02z.onrender.com",
-        process.env.CLIENT_URL!,
-      ],
+      origin: "https://airbnb-clone-frontend-x02z.onrender.com",
     })
   );
 
