@@ -39,7 +39,10 @@ export async function createSessionHandler(
       {},
       (err, token) => {
         if (err) throw err;
-        return res.status(200).cookie("token", token).send(existingUser);
+        return res
+          .status(200)
+          .cookie("token", token, { sameSite: "none", secure: true })
+          .send(existingUser);
       }
     );
   }
