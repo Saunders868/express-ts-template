@@ -51,7 +51,7 @@ export async function createSessionHandler(
 // end session
 export async function logoutHandler(req: Request, res: Response) {
   return res
-    .cookie("token", "")
+    .clearCookie("token")
     .status(200)
     .send({ msg: "Logged out successfully...!" });
 }
