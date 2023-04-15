@@ -56,7 +56,7 @@ exports.createSessionHandler = createSessionHandler;
 function logoutHandler(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         return res
-            .cookie("token", "")
+            .clearCookie("token")
             .status(200)
             .send({ msg: "Logged out successfully...!" });
     });
