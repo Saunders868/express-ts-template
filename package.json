@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --respawn --transpile-only index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "rimraf ./build && tsc",
     "start": "node build/index.js"
   },
@@ -19,6 +19,7 @@
     "express": "^4.18.2",
     "pino": "^8.10.0",
     "pino-pretty": "^9.2.0",
+    "puppeteer": "^21.1.1",
     "rimraf": "^4.1.2"
   },
   "devDependencies": {
