@@ -11,11 +11,11 @@ export async function scrapeWebsiteHandler(
     const articleSelector = req.query.articleSelector;
     const url = req.query.url;
     const titleSelector = req.query.titleSelector;
-    // const linkSelector = req.query.linkSelector;
-    // const imgSelector = req.query.imgSelector;
+    const linkSelector = req.query.linkSelector;
+    const imgSelector = req.query.imgSelector;
 
-    const movieTowneData = await scrape({ url, articleSelector, titleSelector });
-    res.json({ message: "great work", articles: movieTowneData });
+    const data = await scrape({ url, articleSelector, titleSelector, linkSelector, imgSelector });
+    res.json({ message: "success", articles: data });
   } catch (error: any) {
     console.log(error);
     return res.status(500).send({ err: error });
