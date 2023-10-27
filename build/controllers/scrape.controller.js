@@ -20,10 +20,10 @@ req, res) {
             const articleSelector = req.query.articleSelector;
             const url = req.query.url;
             const titleSelector = req.query.titleSelector;
-            // const linkSelector = req.query.linkSelector;
-            // const imgSelector = req.query.imgSelector;
-            const movieTowneData = yield (0, scrape_service_1.scrape)({ url, articleSelector, titleSelector });
-            res.json({ message: "great work", articles: movieTowneData });
+            const linkSelector = req.query.linkSelector;
+            const imgSelector = req.query.imgSelector;
+            const data = yield (0, scrape_service_1.scrape)({ url, articleSelector, titleSelector, linkSelector, imgSelector });
+            res.json({ message: "success", articles: data });
         }
         catch (error) {
             console.log(error);

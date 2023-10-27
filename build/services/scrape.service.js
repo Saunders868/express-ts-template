@@ -23,10 +23,22 @@ function scrape({ url, articleSelector, titleSelector, linkSelector, imgSelector
         const data = yield page.evaluate((articleSelector, titleSelector, linkSelector, imgSelector) => {
             const articles = document.querySelectorAll(articleSelector);
             return Array.from(articles).map((article) => {
-                var _a, _b, _c, _d;
+                var _a, _b;
                 const title = (_b = (_a = article.querySelector(titleSelector)) === null || _a === void 0 ? void 0 : _a.innerHTML) === null || _b === void 0 ? void 0 : _b.trim();
-                const link = (_c = article.querySelector("a")) === null || _c === void 0 ? void 0 : _c.href;
-                const img = (_d = article.querySelector("img")) === null || _d === void 0 ? void 0 : _d.src;
+                let link;
+                let img;
+                const linkElement = article.querySelector(linkSelector);
+                if (linkElement instanceof HTMLAnchorElement) {
+                    // Now you can safely access the href property
+                    link = linkElement.href;
+                }
+                const imgElement = article.querySelector(imgSelector);
+                if (imgElement instanceof HTMLImageElement) {
+                    // Now you can safely access the href property
+                    img = imgElement.src;
+                }
+                // const link = article.querySelector("a")?.href;
+                // const img = article.querySelector("img")?.src;
                 return {
                     title,
                     link,
